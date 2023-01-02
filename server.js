@@ -14,6 +14,7 @@ app.get('/', (req, res) => {
     res.redirect(`/${uuidV4()}`)
 });
 app.get('/:room', (req, res) => {
+    // TODO save local storage 
     res.render('room', { roomId: req.params.room });
 });
 
