@@ -20,7 +20,10 @@ app.get('/:room', (req, res) => {
 
 io.on('connection', socket => {
     socket.on('join-room', (roomId, userId) => {
-     console.log(roomId, userId);
+     // Join room id
+     socket.join(roomId);
+     // send message to room
+     socket.broadcast.to(roomId).emit('user-connected', userId);
     });
 });
 
